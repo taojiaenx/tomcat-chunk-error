@@ -1,0 +1,18 @@
+<configuration>
+    <appender name="consolefile" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%p]%d{yyyy-MM-dd HH:mm:ss} [%c] [%line] [%M] {%m} %n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name ="console" class= "ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold >0</discardingThreshold>
+        <queueSize>8192</queueSize>
+        <appender-ref ref ="consolefile"/>
+    </appender>
+
+
+    <root level="DEBUG">
+        <appender-ref ref="console" />
+    </root>
+</configuration>
